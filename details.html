@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nass-Academy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">   
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
+ <style>
+
+  body{
+    background-color: whitesmoke;
+
+  }
+
+  .grid{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    align-items: center;
+
+  }
+
+  .bottom-left-div {
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    z-index: 999;
+    /* Ensure it's on top of other elements */
+    }
+
+    .top-left-div {
+
+position: absolute;
+top: 0;
+left: 0;
+
+z-index: -999;
+/* Ensure it's on top of other elements */
+}
+
+    .media{
+      height: 800px;
+      width: 800px;
+      background-color: transparent;
+      margin-top: 3.5em;
+      padding-top: 5em;
+    }
+
+    .media video{
+      height: 500px;
+      width: 800px;
+      box-shadow: 15px 15px green;
+      border-radius: 5px;
+
+      /* margin: 10em; */
+
+      /* margin-left: 5em; */
+      margin-top: 4.2em;
+    }
+
+    .content{
+      height: 800px;
+      width: 800px;
+      padding: 30px;
+      margin-left: 105px;margin-top: 3.5em;
+      color: aliceblue;
+      position: relative;
+      overflow: scroll;
+      background-color: rgb(14, 14, 73);
+    }
+
+    .content h5{
+      text-transform: uppercase;
+      font-family:'poppiens-bold';
+      font-size: 45px;
+      font-weight: bold;
+    }
+
+    .content p{
+      margin-top: 5%;
+      font-size: 25px;
+      font-style: italic;
+      transform: scale(0.94);
+  animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+@keyframes scale {
+  100% {
+    transform: scale(1);
+  }
+}
+
+    .content button{
+
+      bottom: 0;
+      margin-bottom: 1px;
+      margin-top: 10px;
+      width: auto;
+      height: auto;
+      font-size: 30px;
+      padding-left: 40px;
+      padding-right: 40px;
+      text-align: center;
+      border-radius: 10px;
+      background-color: transparent;
+      font-style: italic;
+      color: white;
+      border: 3px green solid;
+      transition: 1s;
+
+    }
+
+
+    .content button:hover{
+      background-color: green;
+      transform: scale(0.9);
+
+    }
+
+    ol{
+      font-size: 20px;
+    }
+
+    
+
+
+ </style>
+</head>
+<body>
+
+
+  <div class="grid">
+    <div class="media">
+      <video src="imgs/we.mp4" autoplay controls>
+  
+  
+      </video>
+    </div>
+
+
+    <div class="content">
+      <h5>WE school for applied technology </h5>
+
+      <div class="swap">
+
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit ratione, ducimus nostrum molestiae dolores expedita culpa beatae veritatis totam commodi.
+          Eum sint voluptatum nostrum tempora qui itaque blanditiis temporibus incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Numquam esse quis tempore qui nihil nemo rerum accusamus voluptas minima,
+          delectus quam enim porro earum tempora a voluptatibus quia laborum autem.</p>
+ 
+         <ol>
+           <option value="">* departement 1</option>
+           <option value="">* departement 1</option>
+           <option value="">* departement 1</option>
+           <option value="">* departement 1</option>
+           <option value="">* departement 1</option>
+ 
+         </ol>
+ 
+         <p>address Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+         </p>
+
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio a exercitationem, dolorem nam velit similique deserunt harum, blanditiis fugit, provident incidunt enim deleniti natus. Modi quidem quae nisi minus. Voluptatem.</p>
+      
+      
+      
+        </div>
+
+
+
+
+        <button onclick="window.location.href='show.html'">Show More</button>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="top-left-div">    <div >
+    <img width="100%" height="360" class="mb-2" src="imgs/tech.png" alt="">
+   
+  </div>
+</div>
+
+
+  <div class="bottom-left-div">  
+    
+    <div class="map-2024">
+    <img width="100%" height="160" class="mb-2" src="imgs/NASS-Academy.png" alt="">
+  </div>
+
+  </div>
+   
+</body>
+</html>

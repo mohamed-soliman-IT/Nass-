@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nass-Academy</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
+
+
+    body {
+      background-image: url(imgs/nass-academy1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+
+
+    .main-cont {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+    }
+
+
+    .main-cont .content{
+      color: white;
+      text-align: center;
+      align-items: center;
+      margin-left: 10em;
+      
+    }
+
+    .main-cont .content span{
+      font-size: 35px;
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+
+    }
+
+
+    .main-cont .content button{
+      margin-top: 20px;
+      background-color: rgb(51, 111, 51);
+      padding: 12px;
+      text-align: center;
+      width: 250px;
+      color: aliceblue;
+      height: auto;
+      border: 3px solid rgb(174, 174, 3);
+      border-radius: 50px;
+      font-size: 28px;
+
+      
+    }
+
+
+    .main-cont .content button:hover{
+      margin-top: 20px;
+      background-color: rgb(39, 83, 39);
+      padding: 12px;
+      text-align: center;
+      width: 250px;
+      color: aliceblue;
+      height: auto;
+      border: 4px solid rgb(174, 174, 3);
+      border-radius: 50px;
+      font-size: 28px;
+
+      
+    }
+
+
+
+    .container {
+      width: 900px;
+      height: 600px;
+      /* border: 10px solid green; */
+      padding: 15px;
+      margin-bottom: 80px;
+
+    }
+
+    #map {
+      height: 100%;
+      border: 5px solid rgb(174, 174, 3);
+      border-radius: 20px;
+    }
+
+    .background-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      /* Adjust opacity as needed */
+      z-index: -99999;
+      /* Ensure it's below other elements */
+    }
+
+    .top-left-div {
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      z-index: 999;
+      /* Ensure it's on top of other elements */
+    }
+
+
+
+    .social a{
+      color: aliceblue;
+      position: absolute;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      bottom: 0;
+      right: 0;
+      padding-right: 5px;
+      display: flex;
+      font-size: 29px;
+
+    }
+
+
+
+
+
+
+
+    .bottom-right-div {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 150px;
+      /* Adjust width as needed */
+      height: 150px;
+      /* Adjust height as needed */
+      background: rgb(2, 0, 36);
+      background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(77, 223, 43, 1) 100%, rgba(0, 212, 255, 1) 100%);
+      border-radius: 100% 0% 0% 10% / 100% 10% 2% 0%;
+      z-index: 999;
+      /* Ensure it's on top of other elements */
+    }
+
+    .popup-video{
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            height: 100%;
+            width: 100%;
+        }
+
+        .popup-video video{
+            position: absolute;
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 1500px;
+            border-radius: 5px;
+            border: 3px solid green;
+            object-fit: cover;
+            z-index: 999999999999999999999999999999999999999999999999;
+        }
+
+
+        .popup-video span{
+            position: absolute;
+            top: 5px;right: 20px;
+            font-size: 50px;
+            color: white;
+            z-index: 100;
+            cursor: pointer;
+        }
+ 
+        .popup-video a{
+            color: rgb(255, 255, 255);
+            position: absolute;
+            bottom: 0;
+            margin-bottom: 10px;
+            text-align: center;
+            width: 1500px;
+            /* background-color: rgb(255, 255, 255); */
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 5px;
+            font-size: 25px;
+            border: 3px solid green;
+            font-style: italic;
+            transition: 1s;
+        }
+
+
+        .popup-video a:hover{
+
+        background-color: rgb(39, 83, 39);
+        text-align: center;
+        color: aliceblue;
+        border: 3px solid rgb(174, 174, 3);
+        text-decoration: none;
+        
+    }
+
+
+  </style>
+</head>
+
+<body id="body-pd">
+
+  <!-- Container for the map -->
+
+  <div class="background-overlay"></div> <!-- Add this div for black background overlay -->
+
+
+
+  <div class="top-left-div">    <div class="map-2024">
+    <img width="100%" height="160" class="mb-2" src="imgs/NASS-Academy.png" alt="">
+
+
+  </div></div>
+
+
+
+
+<div class="popup-video" style="display: none;">
+
+    <span>&times;</span>
+    <video src="imgs/we.mp4" autoplay controls></video>
+    <br>
+
+    <a href="details.html">Read More --></a>
+
+ 
+</div> 
+
+  <div class="main-cont">
+
+    <div class="content">
+      <div>
+        <span>Properity, for individual value.</span>
+
+      </div>
+
+      <div>
+        <button onclick="window.location.href='fullmap.html'">Get in touch</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="map"></div>
+    </div>
+  </div>
+
+
+
+
+
+  <footer>
+    <div class="social">
+
+     <a href=""><span>www.nassacademy.com</span></a> 
+
+    </div>
+
+
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- <script src="dash.js"></script> -->
+
+  <script>
+    // Initialize Leaflet map
+    var map = L.map('map').setView([30.0, 31.2], 6);
+
+    // Add a base map layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Example marker with video and text in popup
+    var redIcon = L.icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      tooltipAnchor: [16, -28],
+      shadowSize: [41, 41]
+    });
+
+    var videoPopupContent = '<video width="300" height="400" controls>' +
+      '<source src="your-video.mp4" type="video/mp4">' +
+      'Your browser does not support the video tag.' +
+      '</video> <br> ';
+
+    // Add markers with popups
+    var markersData = [
+      { coordinates: [30.046087979058633, 31.338484911291758], popupContent: videoPopupContent },
+      { coordinates: [30.039424841007463, 30.97520978446175], popupContent: videoPopupContent },
+      { coordinates: [25.44797822637187, 30.546875995775633], popupContent: videoPopupContent },
+      { coordinates: [31.032743719376874, 31.38978109783974], popupContent: videoPopupContent },
+      { coordinates: [28.095947398893248, 30.80494119928911], popupContent: videoPopupContent },
+      { coordinates: [31.223707270662015, 29.947748809489298], popupContent: videoPopupContent },
+      { coordinates: [30.057389447578846, 32.46353082425402], popupContent: videoPopupContent },
+      { coordinates: [26.049202935368417, 33.338253633555155], popupContent: videoPopupContent }
+    ];
+
+    markersData.forEach(function(data) {
+      var marker = L.marker(data.coordinates, { icon: redIcon }).addTo(map);
+      marker.on('click', function() {
+        document.querySelector('.popup-video').style.display = 'block';
+        document.querySelector('.container').style.display = 'none';
+
+
+      });
+    });
+
+    // Close popup video when close button is clicked
+    document.querySelector('.popup-video span').onclick = function() {
+      document.querySelector('.popup-video').style.display = 'none';
+      document.querySelector('.container').style.display = 'block';
+
+    };
+</script>
+
+
+</body>
+
+</html>
